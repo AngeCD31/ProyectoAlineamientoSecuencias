@@ -1,8 +1,15 @@
 package util;
 
 import java.io.*;
+import java.util.Scanner;
 
 public class ReadFile {
+
+    public String getFileName(){
+        Scanner read = new Scanner(System.in);
+
+        return read.next();
+    }
 
     public FileReader getFileReader(String link) throws FileNotFoundException {
 
@@ -15,8 +22,7 @@ public class ReadFile {
         char[] characters = new char[0];
 
         try {
-
-            String route = "src\\resources\\FileOne.txt";
+            String route = "src\\resources\\"+getFileName()+".txt";
             FileReader fileReader = getFileReader(route);
 
             int read;
