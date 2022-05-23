@@ -1,13 +1,14 @@
 package main;
 
+import util.Logic;
 import util.ReadFile;
 
 public class Main {
 
     public static void main (String [ ] args) {
 
-        Menu menu = new Menu();
-        menu.showMenu();
+        Logic logic = new Logic();
+        System.out.println(logic.showMatrix());
 
     }
 

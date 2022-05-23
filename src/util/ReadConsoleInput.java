@@ -12,7 +12,7 @@ public class ReadConsoleInput {
         return read.next();
     }
 
-    public void readInput(){
+    public char[] readInput(){
 
         String input = getInput();
         char [] characters = new char[countCharacters(input)];
@@ -28,6 +28,7 @@ public class ReadConsoleInput {
         {
             System.out.println(characters[i]);
         }
+        return characters;
     }
 
     public int countCharacters(String read){

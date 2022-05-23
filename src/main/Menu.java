@@ -1,5 +1,6 @@
 package main;
 
+import domain.Scoring;
 import util.ReadConsoleInput;
 import util.ReadFile;
 
@@ -7,8 +8,13 @@ import java.util.Scanner;
 
 public class Menu {
 
+    Scanner read;
     ReadFile readFile = new ReadFile();
     ReadConsoleInput readConsoleInput = new ReadConsoleInput();
+    Scoring scoring;
+
+    private char[] X;
+    private char[] Y;
 
     public void showMenu(){
 
@@ -17,20 +23,20 @@ public class Menu {
         System.out.println("2. Alinear secuencias de entrada por consola.");
         System.out.println("3. Salir.");
 
-        Scanner read = new Scanner(System.in);
+        read = new Scanner(System.in);
 
         switch (Integer.parseInt(read.next())){
             case 1:
                 System.out.println("Ingrese el nombre del archivo 1:");
-                readFile.readTxt();
+                X = readFile.readTxt();
                 System.out.println("Ingrese el nombre del archivo 2:");
-                readFile.readTxt();
+                Y = readFile.readTxt();
                 break;
             case 2:
                 System.out.println("Ingrese el texto 1:");
-                readConsoleInput.readInput();
+                X = readConsoleInput.readInput();
                 System.out.println("Ingrese el texto 2:");
-                readConsoleInput.readInput();
+                Y = readConsoleInput.readInput();
                 break;
             case 3:
                 System.exit(0);
@@ -38,5 +44,38 @@ public class Menu {
         }
 
     }
+
+    public char[] returnX(){
+       return X;
+    }
+
+    public char[] returnY(){
+        return Y;
+    }
+
+    public int returnM(){
+        return X.length + 1;
+    }
+
+    public int returnN(){
+        return Y.length + 1;
+    }
+
+    public Scoring getScoring(){
+
+        read = new Scanner(System.in);
+        scoring = new Scoring(0,0,0);
+
+        System.out.println("Ingrese el score para el match:");
+        scoring.setMatch(Integer.parseInt(read.next()));
+        System.out.println("Ingrese el score para el miss match:");
+        scoring.setMissMatch(Integer.parseInt(read.next()));
+        System.out.println("Ingrese el score para el gap:");
+        scoring.setGapsPenalty(Integer.parseInt(read.next()));
+
+        return scoring;
+    }
+
+
 
 }
