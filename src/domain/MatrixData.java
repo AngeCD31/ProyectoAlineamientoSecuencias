@@ -3,13 +3,14 @@ package domain;
 public class MatrixData {
 
     public String type;
-    public char data;
-    public String[] directions;
+    public String data;
 
-    public MatrixData(String type, char data) {
+    public String before;
+
+    public MatrixData(String type, String data) {
         this.type = type;
         this.data = data;
-        this.directions = new String[3];
+        this.before = "";
     }
 
     public String getType() {
@@ -20,20 +21,19 @@ public class MatrixData {
         this.type = type;
     }
 
-    public char getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(char data) {
+    public void setData(String data) {
         this.data = data;
     }
 
-    public String[] getDirections() {
-        return directions;
+    public String getBefore() {
+        return before;
     }
 
-    public void setDirections(String[] directions) {
-        this.directions = directions;
+    public void setBefore(String before) {
+        this.before = before;
     }
-
 }

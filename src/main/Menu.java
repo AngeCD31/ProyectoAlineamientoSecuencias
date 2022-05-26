@@ -54,11 +54,11 @@ public class Menu {
     }
 
     public int returnM(){
-        return X.length + 1;
+        return X.length + 2;
     }
 
     public int returnN(){
-        return Y.length + 1;
+        return Y.length + 2;
     }
 
     public Scoring getScoring(){
